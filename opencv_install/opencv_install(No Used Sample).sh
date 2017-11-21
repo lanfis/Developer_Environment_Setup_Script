@@ -1,0 +1,23 @@
+#!/bin/sh
+cd ~/;
+sudo apt-get install -y build-essential;
+sudo apt-get install -y cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev;
+sudo apt-get install -y python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev;
+sudo apt-get -y update;
+cd ~/;
+git clone https://github.com/opencv/opencv.git --recursive;
+cd ~/opencv;
+mkdir release;
+cd release;
+sudo cmake -DCMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..;
+sudo make -j2;
+sudo make install;
+;
+cd ~/;
+git clone https://github.com/opencv/opencv_contrib.git --recursive;
+cd ~/opencv_contrib;
+mkdir release;
+cd release;
+sudo cmake -DOPENCV_EXTRA_MODULES_PATH=~/opencv_contrib/modules ~/opencv;
+sudo make -j2;
+sudo make install;
