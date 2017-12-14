@@ -3,7 +3,7 @@ echo "-- Fetching needed packages ...\n";
 sudo apt-get -y update;
 sudo apt-get -y install libmysqlclient-dev
 sudo -H pip install --upgrade pip;
-sudo apt-get install python-lmdb;
+sudo apt-get -y install python-lmdb;
 sudo sh caffe_download.sh;
 echo "-- Generating release directory ...\n";
 mkdir $HOME/caffe2/build;
