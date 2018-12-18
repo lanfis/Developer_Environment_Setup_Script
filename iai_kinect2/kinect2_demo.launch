@@ -1,0 +1,6 @@
+<launch>
+  <node name="kinect2_bridge" pkg="kinect2_bridge" type="kinect2_bridge" respawn="false" output="screen">
+  <param name="depth_method" type="str" value="cpu"/>
+  <!--param name="reg_method" type="str" value="cpu"/-->
+  </node>
+</launch>
